@@ -7,9 +7,15 @@ public class CatBehaviour : MonoBehaviour
 
     private AudioSource catAudioSource;
 
+    [SerializeField]
+    private Camera camera;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        camera.SetReplacementShader(Shader.Find("CatVision"), "RenderType");
+
         catAudioSource = GetComponent<AudioSource>();
 
         StartCoroutine(PlayMeow());
